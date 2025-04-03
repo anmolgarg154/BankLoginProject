@@ -14,7 +14,7 @@ public class Login extends JFrame implements ActionListener {
 
      JButton button1, button2, button3;
    Login(){
-            super("Bank Management system");
+            super("Bank Management system Login");
 
            label1 = new JLabel("WELCOME TO ATM");
            label1.setForeground(Color.WHITE);
