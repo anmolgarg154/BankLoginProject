@@ -44,10 +44,27 @@ public class Login extends JFrame {
              passwordField.setFont(new Font("Arial",Font.BOLD,14));
              add(passwordField);
 
-             button1 = new JButton("Login");
-             button1.setFont(new Font("Ralway",Font.BOLD,30));
-             button1.setBounds(195,350,255,50);
+             button1 = new JButton("sign");
+             button1.setForeground(Color.WHITE);
+             button1.setBackground(Color.BLACK);
+             button1.setFont(new Font("Ralway",Font.BOLD,14));
+             button1.setBounds(300,300,100,30);
              add(button1);
+
+               button2 = new JButton("clear");
+               button2.setForeground(Color.WHITE);
+               button2.setBackground(Color.BLACK);
+               button2.setFont(new Font("Ralway",Font.BOLD,14));
+               button2.setBounds(430,300,100,30);
+               add(button2);
+
+
+               button3 = new JButton("Login");
+               button3.setForeground(Color.WHITE);
+               button3.setBackground(Color.BLACK);
+               button3.setFont(new Font("Ralway",Font.BOLD,15));
+               button3.setBounds(300,350,230,30);
+               add(button3);
 
             ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
             Image i2= i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
