@@ -8,9 +8,8 @@ import java.util.Random;
 
 public class Signup extends JFrame implements ActionListener {
     JLabel l1, l2, l3;
-    JTextField Textname, TextFname, TextDOB, Number;
+    JTextField Textname, TextFname, TextDOB, Number, textEmail, textCity;
     JButton button1, button2 , next;
-    JRadioButton r1, r2;
     JCheckBox button3, button4;
 
     Random ran = new Random();
@@ -64,9 +63,9 @@ public class Signup extends JFrame implements ActionListener {
         email.setBounds(150,200,150,30);
         iimage.add(email);
 
-        JTextField box = new JTextField();
-        box.setBounds(400,200,200,30);
-        iimage.add(box);
+        textEmail = new JTextField();
+        textEmail.setBounds(400,200,200,30);
+        iimage.add(textEmail);
 
         l2 = new JLabel("Name :");
         l2.setForeground(Color.WHITE);
@@ -131,6 +130,17 @@ public class Signup extends JFrame implements ActionListener {
         button4.setBounds(490,450,100,30);
         iimage.add(button4);
 
+        JLabel city = new JLabel("City :");
+        city.setForeground(Color.WHITE);
+        city.setFont(new Font("Raleway",Font.BOLD,30));
+        city.setBounds(150,500,100,30);
+        iimage.add(city);
+
+        textCity = new JTextField();
+        textCity.setFont(new Font("Raleway",Font.BOLD,14));
+        textCity.setBounds(400,500,200,30);
+        iimage.add(textCity);
+
 
 
         button1 = new JButton("Submit");
@@ -162,14 +172,28 @@ public class Signup extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            if (e.getSource() == button1) {
-                // Submit logic (currently blank)
-            } else if (e.getSource() == button2) {
-                Textname.setText("");
-                TextFname.setText("");
-                TextDOB.setText("");
-                Number.setText("");
+            String formno = first;
+            String  name  = Textname.getText();
+            String  fathername = TextFname.getText();
+            String Gender = null;
+            if(button3.isSelected()){
+                Gender = "Male";
+            }else if (button4.isSelected()){
+                Gender = "Female";
+            }
+            String Email = textEmail.getText();
+            String DOB = TextDOB.getText();
+            String number = Number.getText();
+            String  City =  textCity.getText();
 
+            if (Textname.getText().equals("")) {
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            } else {
+                 Con con1 = new Con();
+                 String q = "insert into signup values('"+formno+"','"+Email+"','"+name+"','"+fathername+"','"+Gender+"','"+DOB+"','"+number+"','"+City+"')";
+                 con1.statement.executeUpdate(q);
+                 new Login();
+                 setVisible(false);
 
             }
         } catch (Exception E) {
