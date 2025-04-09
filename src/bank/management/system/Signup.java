@@ -156,17 +156,9 @@ public class Signup extends JFrame implements ActionListener {
         button2.setForeground(Color.WHITE);
         button2.setFont(new Font("Raleway", Font.BOLD, 20));
         button2.setBounds(460, 600, 150, 50);
-        button2.addActionListener(this);
         iimage.add(button2);
         setVisible(true);
 
-        next = new JButton("Next");
-        next.setFont(new Font("Raleway",Font.BOLD,15));
-        next.setBackground(Color.BLACK);
-        next.setForeground(Color.WHITE);
-        next.setBounds(700,600,80,30);
-        next.addActionListener(this);
-        iimage.add(next);
     }
 
     @Override
