@@ -6,9 +6,12 @@ import java.awt.*;
 public class Home extends JFrame {
     JLabel title, subtitle, welcomeMsg;
     JButton aboutBtn, servicesBtn, contactBtn, loginBtn;
+    String pin;
+    public Home(String pin) {
+        this.pin = pin;
 
-    public Home() {
-        super("Bank Management System - Home");
+
+
 
         // Layout settings
         setLayout(null);
@@ -57,6 +60,6 @@ public class Home extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Home();
+        new Home("");
     }
 }

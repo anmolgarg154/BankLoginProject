@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
      JLabel label1 , label2, label3;
@@ -46,7 +47,7 @@ public class Login extends JFrame implements ActionListener {
              passwordField.setFont(new Font("Arial",Font.BOLD,14));
              add(passwordField);
 
-             button1 = new JButton("sign");
+             button1 = new JButton("SignIn");
              button1.setForeground(Color.WHITE);
              button1.setBackground(Color.BLACK);
              button1.setFont(new Font("Ralway",Font.BOLD,14));
@@ -63,7 +64,7 @@ public class Login extends JFrame implements ActionListener {
                add(button2);
 
 
-               button3 = new JButton("Login");
+               button3 = new JButton("SignUp");
                button3.setForeground(Color.WHITE);
                button3.setBackground(Color.BLACK);
                button3.setFont(new Font("Ralway",Font.BOLD,15));
@@ -104,13 +105,26 @@ public class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        try{
           if(e.getSource() == button1){
+              Con c = new Con();
+              String cardno = textField.getText();
+              String pinno  =    passwordField.getText();
+
+              String q = "Select * from Login where card_no = '"+cardno+"' and pin = '"+pinno+"' ";
+
+              ResultSet resultSet = c.statement.executeQuery(q);
+              if(resultSet.next()){
+                  setVisible(false);
+                  new Home(pinno);
+              }
+
 
           }else if(e.getSource()== button2){
                  textField.setText("");
                  passwordField.setText("");
           }
           else if(e.getSource()==button3){
-
+              new Signup();
+              setVisible(false);
           }
        }catch (Exception E){
           E.printStackTrace();

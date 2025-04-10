@@ -104,7 +104,7 @@ public class Signup2 extends JFrame implements ActionListener {
                   con2.statement.executeUpdate(q1);
                   con2.statement.executeUpdate(q2);
                   JOptionPane.showMessageDialog(null,"Card No :"+cardNo+"\n Pin :"+pin);
-                  new Login();
+                  new Deposit(pin);
                   setVisible(false);
               }
           }catch (Exception E){
